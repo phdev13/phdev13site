@@ -70,8 +70,8 @@ const ParticleNetwork = () => {
       draw() {
         if (!ctx) return;
         ctx.save();
-        ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = 'rgba(124, 58, 237, 1)'; // Opacidade máxima
+        ctx.globalAlpha = this.alpha * 0.3; // Opacidade mais sutil
+        ctx.fillStyle = 'rgba(124, 58, 237, 1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -104,9 +104,9 @@ const ParticleNetwork = () => {
                 const opacity = (1 - (distance / connectionDistance)) * Math.min(particles[i].alpha, particles[j].alpha);
                 
                 if (opacity > 0) {
-                    // Linhas mais visíveis
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.8})`; 
-                    ctx.lineWidth = 1.5;
+                    // Linhas mais sutis
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.2})`; 
+                    ctx.lineWidth = 1;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
