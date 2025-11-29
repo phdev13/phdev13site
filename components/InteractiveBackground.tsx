@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
@@ -15,8 +14,8 @@ const ParticleNetwork = () => {
     let h = canvas.height = window.innerHeight;
     
     // Configurações
-    const particleCount = Math.min(Math.floor((w * h) / 10000), 100); // Responsivo
-    const connectionDistance = 160; // Aumentei um pouco a distância de conexão
+    const particleCount = Math.min(Math.floor((w * h) / 10000), 100);
+    const connectionDistance = 160;
     const mouseDistance = 250;
     
     let particles: Particle[] = [];
@@ -33,14 +32,15 @@ const ParticleNetwork = () => {
       constructor() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 0.3; // Movimento bem mais lento
+        this.vx = (Math.random() - 0.5) * 0.3;
         this.vy = (Math.random() - 0.5) * 0.3;
-        this.size = Math.random() * 1.5 + 0.8; // Partículas menores
+        // ALTERAÇÃO 1: Aumentei o tamanho base das partículas para serem mais visíveis
+        // Antes: Math.random() * 1.5 + 0.8;
+        this.size = Math.random() * 2.5 + 1.5; 
         this.alpha = 1;
       }
 
       update() {
-        // Manter alpha sempre visível
         this.alpha = 1;
 
         this.x += this.vx;
@@ -70,7 +70,8 @@ const ParticleNetwork = () => {
       draw() {
         if (!ctx) return;
         ctx.save();
-        ctx.globalAlpha = this.alpha * 1; // Muito sutil
+        // A opacidade aqui já é 1 (máxima), mas o aumento do tamanho acima ajudará na visibilidade.
+        ctx.globalAlpha = this.alpha; 
         ctx.fillStyle = 'rgba(124, 58, 237, 1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -104,8 +105,10 @@ const ParticleNetwork = () => {
                 const opacity = (1 - (distance / connectionDistance)) * Math.min(particles[i].alpha, particles[j].alpha);
                 
                 if (opacity > 0) {
-                    // Linhas muito sutis
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.05})`; 
+                    // ALTERAÇÃO 2 (IMPORTANTE): Aumentei drasticamente a opacidade das linhas.
+                    // Antes era: opacity * 0.05 (muito sutil)
+                    // Agora é: opacity * 0.3 (bem mais visível)
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.3})`; 
                     ctx.lineWidth = 0.8;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -124,7 +127,6 @@ const ParticleNetwork = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-        // Obter posição relativa ao canvas para maior precisão se houver scroll/offset
         const rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
@@ -168,7 +170,7 @@ export const InteractiveBackground: React.FC = () => {
         }}
       />
       
-      {/* 2. Aurora Gradients (Cores mais escuras para aparecer no branco) */}
+      {/* 2. Aurora Gradients */}
       <motion.div 
         animate={{ 
           x: [-50, 50, -50],
@@ -206,7 +208,7 @@ export const InteractiveBackground: React.FC = () => {
          <ParticleNetwork />
       </div>
 
-      {/* 4. Vignette Suavizado (Menos opaco no centro) */}
+      {/* 4. Vignette Suavizado */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.6)_70%,#fff_100%)] z-10" />
     </div>
   );
