@@ -1,4 +1,4 @@
-
+e
 import React, { useState, useEffect, useMemo } from 'react';
 import { ArrowRight, MessageSquare, Zap, FileCode, Cpu, Palette } from 'lucide-react';
 import { Button } from './Button';
@@ -439,7 +439,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenChat }) => {
                 
                 {/* Floating Badge attached to card */}
                 <div className="absolute -bottom-4 -right-4 bg-white text-gray-900 px-4 py-2 rounded-xl shadow-xl border border-gray-100 flex items-center gap-2 font-bold text-xs animate-bounce" style={{ animationDuration: '3s' }}>
-                   <Zap size={14} className="text-yellow-500 fill-yellow-500"/> Fast Delivery
+                   <Zap size={14} className="text-yellow-500 fill-yellow-500"/> Entrega rápida!
                 </div>
              </motion.div>
 
