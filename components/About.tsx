@@ -30,7 +30,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate }) => {
               className="space-y-6 text-gray-600 text-lg leading-relaxed"
             >
               <p>
-                Olá! Sou o PH, um desenvolvedor apaixonado por construir interfaces digitais que não são apenas bonitas, mas funcionais e acessíveis. Com mais de 5 anos de experiência, foco em entregar código limpo e soluções escaláveis.
+                Olá! Sou o Philippe Boechat, um desenvolvedor apaixonado por construir interfaces digitais que não são apenas bonitas, mas funcionais e acessíveis. Com mais de 15 anos de experiência, foco em entregar código limpo e soluções escaláveis.
               </p>
               <p>
                 Minha especialidade é o ecossistema <strong>React & TypeScript</strong>. Acredito que a tecnologia deve servir ao propósito do negócio, por isso cada linha de código que escrevo é pensada na performance final e na experiência do usuário.
