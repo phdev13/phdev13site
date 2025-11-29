@@ -254,7 +254,7 @@ const CodeTypewriter = () => {
 
     // Optimize Rendering: Slice the tokens based on charCount
     // This avoids complex state logic inside the timer loop
-    useMemo(() => {
+    useEffect(() => {
         let currentCount = 0;
         const newTokens: React.ReactNode[] = [];
 
