@@ -460,25 +460,25 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenChat }) => {
            </p>
            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90">
               
-              {/* React - Official #61DAFB */}
-              <TechIcon label="React" color="#61DAFB" hoverColor="#61DAFB">
-                  <svg viewBox="0 0 24 24" className="w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.36c-1.68 0-3.32-.42-4.76-1.12-1.39-.68-2.67-1.74-3.64-3.03-.96-1.28-1.55-2.82-1.55-4.49 0-1.67.59-3.21 1.55-4.49.97-1.29 2.25-2.35 3.64-3.03 1.44-.7 3.08-1.12 4.76-1.12 1.68 0 3.32.42 4.76 1.12 1.39.68 2.67 1.74 3.64 3.03.96 1.28 1.55 2.82 1.55 4.49 0 1.67-.59 3.21-1.55 4.49-.97 1.29-2.25 2.35-3.64 3.03-1.44.7-3.08 1.12-4.76 1.12zM12 4.86c-1.35 0-2.67.33-3.82.88-1.11.53-2.12 1.37-2.89 2.38-.76 1.01-1.23 2.22-1.23 3.59 0 1.36.46 2.58 1.23 3.59.77 1.01 1.78 1.85 2.89 2.38 1.15.55 2.47.88 3.82.88s2.67-.33 3.82-.88c1.11-.53 2.12-1.37 2.89-2.38.76-1.01 1.23-2.22 1.23-3.59 0-1.36-.46-2.58-1.23-3.59-.77-1.01-1.78-1.85-2.89-2.38-1.15-.55-2.47-.88-3.82-.88z"/><circle cx="12" cy="12" r="2.05"/></svg>
-              </TechIcon>
+{/* React - Official #61DAFB */}
+        <TechIcon label="React" color="#61DAFB" hoverColor="#61DAFB">
+            <FaReact className="w-10 h-10" />
+        </TechIcon>
 
-              {/* TypeScript - Official #3178C6 */}
-              <TechIcon label="TypeScript" color="#3178C6" hoverColor="#3178C6">
-                  <svg viewBox="0 0 24 24" className="w-9 h-9 fill-current rounded" xmlns="http://www.w3.org/2000/svg"><path d="M2.25 0h19.5c1.24 0 2.25 1.01 2.25 2.25v19.5c0 1.24-1.01 2.25-2.25 2.25H2.25C1.01 24 0 22.99 0 21.75V2.25C0 1.01 1.01 0 2.25 0zm10.12 11.62L11 16.85h1.9c.7.01 1.26-.25 1.69-.76.43-.52.65-1.18.65-1.99 0-.85-.21-1.53-.63-2.05-.42-.51-1.01-.77-1.78-.77h-2.47v6.62H15.6v-1.63h-2.8v-1.6h2.64v-1.6h-2.64v-1.45h2.8V9.99h-3.23v1.63zm-4.7 5.23h1.64v-6.86h2.15v-1.63h-5.94v1.63h2.15v6.86z"/></svg>
-              </TechIcon>
+        {/* TypeScript - Official #3178C6 */}
+        <TechIcon label="TypeScript" color="#3178C6" hoverColor="#3178C6">
+            <SiTypescript className="w-9 h-9 rounded" /> 
+        </TechIcon>
 
-              {/* Tailwind - Official #38BDF8 */}
-              <TechIcon label="Tailwind" color="#38BDF8" hoverColor="#38BDF8">
-                  <svg viewBox="0 0 24 24" className="w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
-              </TechIcon>
+        {/* Tailwind - Official #38BDF8 */}
+        <TechIcon label="Tailwind" color="#38BDF8" hoverColor="#38BDF8">
+            <SiTailwindcss className="w-10 h-10" />
+        </TechIcon>
 
-              {/* Next.js - Official Black (or dark gray for visibility) */}
-              <TechIcon label="Next.js" color="#262626" hoverColor="#000000">
-                  <svg viewBox="0 0 24 24" className="w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10 0 2.275-.76 4.375-2.036 6.096L9.5 6.005h2.096l6.904 11.233A9.957 9.957 0 0112 22C6.477 22 2 17.523 2 12S6.477 2 12 2zM7.5 17.5v-11h-2v11h2z"/></svg>
-              </TechIcon>
+        {/* Next.js - Official Black */}
+        <TechIcon label="Next.js" color="#262626" hoverColor="#000000">
+            <SiNextdotjs className="w-10 h-10" />
+        </TechIcon>
 
            </div>
         </motion.div>
