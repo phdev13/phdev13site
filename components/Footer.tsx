@@ -39,9 +39,9 @@ export const Footer: React.FC<Pick<NavigationProps, 'onNavigate'>> = ({ onNaviga
 
              <div className="flex gap-4">
                 {[
-                  { Icon: Github, href: "https://github.com", label: "GitHub" },
+                  { Icon: Github, href: "https://github.com/phdev13", label: "GitHub" },
                   { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                  { Icon: Instagram, href: "https://instagram.com", label: "Instagram" }
+                  { Icon: Instagram, href: "https://instagram.com/philippeboechat", label: "Instagram" }
                 ].map((social) => (
                   <a 
                     key={social.label}
@@ -124,7 +124,7 @@ export const Footer: React.FC<Pick<NavigationProps, 'onNavigate'>> = ({ onNaviga
         {/* Footer Bottom */}
         <div className="pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-600">
-            &copy; {currentYear} PH Development. Todos os direitos reservados.
+            &copy; {currentYear} PhDev. Todos os direitos reservados.
           </p>
           
           <div className="flex items-center gap-2 text-xs text-gray-700 bg-gray-900/50 px-3 py-1.5 rounded-full border border-gray-800">
