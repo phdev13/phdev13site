@@ -34,8 +34,8 @@ const ParticleNetwork = () => {
         this.y = Math.random() * h;
         this.vx = (Math.random() - 0.5) * 0.3;
         this.vy = (Math.random() - 0.5) * 0.3;
-        // ALTERAÇÃO 1: Aumentei o tamanho base das partículas para serem mais visíveis
-        // Antes: Math.random() * 1.5 + 0.8;
+        // Mantive o tamanho um pouco maior para não sumirem, 
+        // vamos controlar a "agressividade" na opacidade abaixo.
         this.size = Math.random() * 2.5 + 1.5; 
         this.alpha = 1;
       }
@@ -70,8 +70,10 @@ const ParticleNetwork = () => {
       draw() {
         if (!ctx) return;
         ctx.save();
-        // A opacidade aqui já é 1 (máxima), mas o aumento do tamanho acima ajudará na visibilidade.
-        ctx.globalAlpha = this.alpha; 
+        // ALTERAÇÃO 1 (SUTILEZA NAS PARTÍCULAS):
+        // Antes estava: ctx.globalAlpha = this.alpha; (que era 1.0 / 100%)
+        // Agora multiplicamos por 0.5 para que tenham no máximo 50% de opacidade.
+        ctx.globalAlpha = this.alpha * 0.5; 
         ctx.fillStyle = 'rgba(124, 58, 237, 1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -105,10 +107,10 @@ const ParticleNetwork = () => {
                 const opacity = (1 - (distance / connectionDistance)) * Math.min(particles[i].alpha, particles[j].alpha);
                 
                 if (opacity > 0) {
-                    // ALTERAÇÃO 2 (IMPORTANTE): Aumentei drasticamente a opacidade das linhas.
-                    // Antes era: opacity * 0.05 (muito sutil)
-                    // Agora é: opacity * 0.3 (bem mais visível)
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.3})`; 
+                    // ALTERAÇÃO 2 (SUTILEZA NAS LINHAS):
+                    // Reduzi o multiplicador de 0.3 para 0.12. 
+                    // Isso torna as linhas muito mais transparentes e delicadas.
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.12})`; 
                     ctx.lineWidth = 0.8;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -154,6 +156,7 @@ const ParticleNetwork = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
 };
 
+// O restante do componente InteractiveBackground permanece igual...
 export const InteractiveBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-white select-none pointer-events-none">
