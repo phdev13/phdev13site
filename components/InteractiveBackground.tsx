@@ -70,7 +70,7 @@ const ParticleNetwork = () => {
       draw() {
         if (!ctx) return;
         ctx.save();
-        ctx.globalAlpha = this.alpha * 0.01; // Muito sutil
+        ctx.globalAlpha = this.alpha * 1; // Muito sutil
         ctx.fillStyle = 'rgba(124, 58, 237, 1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
