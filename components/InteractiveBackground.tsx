@@ -36,14 +36,12 @@ const ParticleNetwork = () => {
         this.vx = (Math.random() - 0.5) * 1.5; // Um pouco mais rápido para ser notado
         this.vy = (Math.random() - 0.5) * 1.5;
         this.size = Math.random() * 2.5 + 1.5; // Partículas levemente maiores
-        this.alpha = 0;
+        this.alpha = 1; // Começar visível imediatamente
       }
 
       update() {
-        // Fade in mais rápido
-        if (this.alpha < 1) {
-            this.alpha += 0.05;
-        }
+        // Manter alpha sempre visível
+        this.alpha = 1;
 
         this.x += this.vx;
         this.y += this.vy;
