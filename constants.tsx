@@ -220,5 +220,5 @@ export const PROCESS_STEPS: ProcessStep[] = [
   }
 ];
 
-export const WHATSAPP_NUMBER = "5511999999999"; 
-export const EMAIL_CONTACT = "contato@phdev.com";
+export const WHATSAPP_NUMBER = "5561993619554"; 
+export const EMAIL_CONTACT = "philippeboechat1@gmai.com";
