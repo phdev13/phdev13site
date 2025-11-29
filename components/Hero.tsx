@@ -240,9 +240,10 @@ const CodeTypewriter = () => {
                     setCharCount(prev => prev - 2); // Delete faster
                     timeout = setTimeout(type, speed);
                 } else {
+                    // Don't pause between snippets, go straight to next
                     setIsDeleting(false);
                     setSnippetIndex(prev => (prev + 1) % META_SNIPPETS.length);
-                    setCharCount(0);
+                    setCharCount(1); // Start with 1 char of the next snippet
                 }
             }
         };
