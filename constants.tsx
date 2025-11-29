@@ -75,7 +75,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       },
       {
         question: "Preciso pagar mensalidade?",
-        answer: "Pela minha parte, não! O código é seu. Você terá custos apenas anuais do domínio (aprox. R$ 40/ano)."
+        answer: "Pela minha parte, não! O código é totalmente seu! Você terá custos apenas anuais do domínio (aprox. R$ 40/ano)."
       },
       {
         question: "Funciona no celular?",
