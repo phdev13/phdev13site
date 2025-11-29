@@ -77,7 +77,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">WhatsApp (Recomendado)</p>
-                    <p className="font-medium text-lg">+55 11 99999-9999</p>
+                    <p className="font-medium text-lg">+55 61 9 9361-9554</p>
                   </div>
                 </a>
                 
