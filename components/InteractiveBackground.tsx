@@ -73,7 +73,7 @@ const ParticleNetwork = () => {
         if (!ctx) return;
         ctx.save();
         ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = 'rgba(124, 58, 237, 0.8)'; // Cor primária mais forte
+        ctx.fillStyle = 'rgba(124, 58, 237, 1)'; // Opacidade máxima
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -106,9 +106,9 @@ const ParticleNetwork = () => {
                 const opacity = (1 - (distance / connectionDistance)) * Math.min(particles[i].alpha, particles[j].alpha);
                 
                 if (opacity > 0) {
-                    // Aumentei drasticamente a opacidade da linha (0.15 -> 0.5)
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.5})`; 
-                    ctx.lineWidth = 1.2;
+                    // Linhas mais visíveis
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.8})`; 
+                    ctx.lineWidth = 1.5;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
@@ -156,7 +156,7 @@ const ParticleNetwork = () => {
 
 export const InteractiveBackground: React.FC = () => {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden bg-white select-none pointer-events-none">
+    <div className="absolute inset-0 z-0 overflow-hidden bg-white select-none pointer-events-none">
       
       {/* 1. Architectural Grid Pattern */}
       <div 
