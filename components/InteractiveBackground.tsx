@@ -33,10 +33,10 @@ const ParticleNetwork = () => {
       constructor() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 1.5; // Um pouco mais rápido para ser notado
-        this.vy = (Math.random() - 0.5) * 1.5;
-        this.size = Math.random() * 2.5 + 1.5; // Partículas levemente maiores
-        this.alpha = 1; // Começar visível imediatamente
+        this.vx = (Math.random() - 0.5) * 0.3; // Movimento bem mais lento
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.size = Math.random() * 1.5 + 0.8; // Partículas menores
+        this.alpha = 1;
       }
 
       update() {
@@ -70,7 +70,7 @@ const ParticleNetwork = () => {
       draw() {
         if (!ctx) return;
         ctx.save();
-        ctx.globalAlpha = this.alpha * 0.3; // Opacidade mais sutil
+        ctx.globalAlpha = this.alpha * 0.08; // Muito sutil
         ctx.fillStyle = 'rgba(124, 58, 237, 1)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -104,9 +104,9 @@ const ParticleNetwork = () => {
                 const opacity = (1 - (distance / connectionDistance)) * Math.min(particles[i].alpha, particles[j].alpha);
                 
                 if (opacity > 0) {
-                    // Linhas mais sutis
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.2})`; 
-                    ctx.lineWidth = 1;
+                    // Linhas muito sutis
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.05})`; 
+                    ctx.lineWidth = 0.8;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
